@@ -39,6 +39,12 @@ df["class"] = df["classification"].str.split(";").str[-5].str.replace("c__", "")
 df["phylum"] = df["classification"].str.split(";").str[-6].str.replace("p__", "")
 df["domain"] = df["classification"].str.split(";").str[-7].str.replace("d__", "")
 
+# fill empty
+df = df.fillna("---")
+df = df.replace("", "---")
+print(df)
+sys.exit()
+
 # reorder
 df = df.loc[ : , ["Size(Mbp)", "msa_percent", "fastani_reference", "species", "genus", "family", "order", "class", "phylum", "domain"] ]
 df = df.reset_index()
