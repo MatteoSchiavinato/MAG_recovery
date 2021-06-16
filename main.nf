@@ -280,6 +280,7 @@ process ccs_map_filter_sort {
   output:
     file "${params.sample_id}.f.bam" into ccs_filt_bam
     file "${params.sample_id}.fs.bam" into ccs_filt_sort_bam
+    file "${params.sample_id}.fs.bam.stats" into ccs_filt_sort_bam_stats
 
   script:
     """
@@ -294,7 +295,11 @@ process ccs_map_filter_sort {
     -@ ${params.threads} \
     -T ${params.sample_id} \
     ${params.sample_id}.f.bam \
-    > ${params.sample_id}.fs.bam \
+    > ${params.sample_id}.fs.bam &&
+    ${SAMTOOLS} \
+    stats \
+    ${params.sample_id}.fs.bam \
+    > ${params.sample_id}.fs.bam.stats \
 
     """
 }
