@@ -14,6 +14,7 @@ The pipeline depends on the following tools:
 
 | Software    | Version | Type        | Link                                    |
 |-------------|---------|-------------|-----------------------------------------|
+| Nextflow    | 21.04.1 | Interpreter | https://www.nextflow.io/                |
 | Minimap2    | 2.18    | Program     | https://github.com/lh3/minimap2         |
 | Samtools    | 1.12    | Program     | http://www.htslib.org/download/         |
 | Metabat2    | 2.15    | Program     | https://anaconda.org/bioconda/metabat2  |
@@ -91,4 +92,4 @@ The important output of this step is contained in the `*_filter_outlier_bins` fo
 
 In the end, a taxonomic annotation of the bins is performed with [gtdb-tk](https://github.com/Ecogenomics/GTDBTk). This tool makes use of the most modern resources for metagenomic taxonomic annotation. For further information, you can read the following papers: [Parks et al., 2018](http://dx.doi.org/10.1038/nbt.4229), [Parks et al., 2020](https://doi.org/10.1038/s41587-020-0501-8).
 
-The results are contained in the `gtdb-tk` and in the `statistics` folders inside the `--output_dir`. The `gtdb-tk` folder contains all the files produced by **gtdb-tk**. However, the real result is in `statistics` and is the `ALL.MAG_classification.tsv` file. This file contains all the known taxonomic annotation for each MAG, including its size. 
+The results are contained in the `gtdb-tk` and in the `statistics` folders inside the `--output_dir`. The `gtdb-tk` folder contains all the files produced by **gtdb-tk**. However, the real result is in `statistics` and is the `ALL.MAG_classification.tsv` file. This file contains all the known taxonomic annotation for each MAG, including its size.
